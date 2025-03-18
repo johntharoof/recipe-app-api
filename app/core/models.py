@@ -9,16 +9,18 @@ from django.contrib.auth.models import (
     PermissionsMixin
 )
 
+
 class UserManager(BaseUserManager):
     """Manager for users."""
 
     def create_user(self, email, password=None, **extra_fields):
         """Create, save and return a new user."""
-        user = self.model(email=email, **extra_fields) # if new extra fields, it will create them automatically
+        user = self.model(email=email, **extra_fields)  # auto add extra fields
         user.set_password(password)
         user.save(using=self._db)
 
         return user
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     """User in the system."""
