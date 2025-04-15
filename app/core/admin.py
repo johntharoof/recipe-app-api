@@ -15,19 +15,16 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
        (None, {'fields': ('email', 'password')}),
        (
-           _('permissions'),
-             {
-                 'fields': (
-                     'is_active',
-                     'is_staff',
-                     'is_superuser'
-                 )
-             }
+           _('Permissions'),
+           {
+                'fields': (
+                    'is_active',
+                    'is_staff',
+                    'is_superuser'
+                )
+            }
        ),
-       (
-           _('Important dates'),
-           {'fields': ('last_login',)}
-       ),
+       (_('Important dates'), {'fields': ('last_login',)}),
     )
     readonly_fields = ['last_login']
 
